@@ -22,7 +22,6 @@ const Layout=({children})=>{
       </div>
     </>
   )
-  
 }
 
 function App() {
