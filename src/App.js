@@ -5,9 +5,7 @@ import Sidebar from "./Components/sidebar/Sidebar"
 import {Container} from "react-bootstrap"
 import HomeScreen from "./screens/homescreen/HomeScreen"
 import LoginScreen from "./screens/loginscreen/LoginScreen"
-
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom"
-
 
 const Layout=({children})=>{
   const [toggleSideBar,setToggleSideBar]=useState(false)
@@ -28,7 +26,6 @@ const Layout=({children})=>{
 }
 
 function App() {
-  // let navigate = useNavigate(); 
   return (
     <Router>
       <Routes>
@@ -39,7 +36,6 @@ function App() {
       </Routes>
     </Router>
   )
-  
 }
 
 export default App;
