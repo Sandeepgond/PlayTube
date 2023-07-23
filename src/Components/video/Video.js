@@ -13,8 +13,7 @@ const Video = ({video}) => {
       title,
       publishedAt,
       thumbnails:{medium},
-    }
-  }=video
+    }}=video
 
   const [views,setViews]=useState(null)
   const [duration,setDuration]=useState(null)
@@ -52,6 +51,7 @@ const Video = ({video}) => {
 
   },[channelId])
 
+  
   return (
     <div className='video'>
       <div className='video_top'>

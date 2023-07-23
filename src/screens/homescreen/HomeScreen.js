@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from "react-redux"
 import { useEffect } from 'react'
 import { getPopularVideos } from '../../redux/actions/video.action'
 
-
 const HomeScreen = () => {
   const dispatch=useDispatch()
   const {videos}=useSelector(state=>state.homeVideos)
