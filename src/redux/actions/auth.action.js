@@ -12,6 +12,7 @@ export const login=()=>async dispatch=>{
 
     try {
         const provider=new firebase.auth.GoogleAuthProvider()
+        provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl")
         const res=await auth.signInWithPopup(provider)
         const accessToken=res.credential.accessToken
         const profile={
@@ -30,7 +31,6 @@ export const login=()=>async dispatch=>{
             type:LOAD_PROFILE,
             payload:profile
         })
-        console.log(res);
     } 
     catch (error) {
         dispatch({
