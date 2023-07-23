@@ -3,7 +3,8 @@ import { HOME_VIDEOS_FAIL, HOME_VIDEOS_REQUEST, HOME_VIDEOS_SUCCESS } from "../a
 export const homeVideoReducer=(state={
     videos:[],
     loading:false,
-    nextPageToken:null
+    nextPageToken:null,
+    category:"All"
 },action)=>{
 
     const {type,payload} =action
@@ -14,15 +15,15 @@ export const homeVideoReducer=(state={
             return{
                 ...state,
                 loading:true
-
             }
 
         case HOME_VIDEOS_SUCCESS:
             return{
                 ...state,
                 videos:payload.videos,
-                loading:false
-
+                loading:false,
+                nextPageToken:payload.nextPageToken,
+                activeCategory:payload.category
             }
 
         case HOME_VIDEOS_FAIL:
