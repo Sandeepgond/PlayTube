@@ -23,6 +23,9 @@ const keywords=[
   "Kabaddi",
   "Badminton",
   "Table Tennis",
+  "Free Fire ",
+  "PubG",
+  "Real Madrid",
   
 ]
 
