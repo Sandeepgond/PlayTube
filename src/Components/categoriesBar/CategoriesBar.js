@@ -20,6 +20,9 @@ const keywords=[
   "Bollywood songs",
   "Cricket",
   "FootBall",
+  "Kabaddi",
+  "Badminton",
+  "Table Tennis",
   
 ]
 
