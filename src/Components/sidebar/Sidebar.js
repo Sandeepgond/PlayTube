@@ -19,7 +19,8 @@ const Sidebar = ({toggleSideBar,handleToggleSideBar}) => {
 
   }
   return (
-    <nav className={toggleSideBar ? "sidebar open" : "sidebar"} 
+    <nav 
+      className={toggleSideBar ? "sidebar open" : "sidebar"} 
       onClick={()=>handleToggleSideBar(false)}
     >
       <li>
@@ -40,7 +41,7 @@ const Sidebar = ({toggleSideBar,handleToggleSideBar}) => {
       </li>
       <li>
         <MdLibraryBooks size={23}/>
-        <span>Librabry</span>
+        <span>Library</span>
       </li>
       <li>
         <MdSentimentDissatisfied size={23}/>
