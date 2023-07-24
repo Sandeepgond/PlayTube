@@ -42,6 +42,7 @@ const HomeScreen = () => {
                     </Col>
                 )):
                 [Array(20).map(()=> <Skeleton height={180} width="100%"/> )]
+                
                 // [...Array(20)].map(()=> <Col lg={3} md={4}> <Skeleton height={180} width="100%" /> </Col>)
                 }
             </Row>
