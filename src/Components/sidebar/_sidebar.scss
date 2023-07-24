@@ -12,6 +12,11 @@
 
     transition: transform 0.2s ease-in;
 
+    position: sticky;
+    top: 10vh;
+    // left: 0;
+    right: 0;
+
     li{
         display: flex;
         align-items: center;
@@ -58,5 +63,6 @@
         transform: translateX(-100%);
         position: fixed;
         z-index: 1;
+        left: 0;
     }
 }

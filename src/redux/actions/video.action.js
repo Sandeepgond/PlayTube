@@ -5,7 +5,7 @@ import {
  } from '../actionType'
  
  import request from '../../api'
-export const getPopularVideos = () => async dispatch=> {
+export const getPopularVideos = () => async (dispatch,getState)=> {
     try {
        dispatch({
           type: HOME_VIDEOS_REQUEST,
@@ -25,7 +25,7 @@ export const getPopularVideos = () => async dispatch=> {
           payload: {
              videos: data.items,
              category:"All",
-             nextPageToken: data.nextPageToken
+             pageToken: getState().homeVideos.nextPageToken,
           },
        })
     } catch (error) {
