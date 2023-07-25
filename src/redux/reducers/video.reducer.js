@@ -4,7 +4,7 @@ export const homeVideoReducer=(state={
     videos:[],
     loading:false,
     nextPageToken:null,
-    activeCategory:"All"
+    activeCategory:'All'
 },action)=>{
 
     const {type,payload} =action
@@ -31,7 +31,6 @@ export const homeVideoReducer=(state={
                 ...state,
                 loading:false,
                 error:payload
-
             }
 
         default:return{

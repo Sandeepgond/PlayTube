@@ -1,12 +1,12 @@
 import React  from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container} from 'react-bootstrap'
 import Video from "../../Components/video/Video"
 import CategoriesBar from "../../Components/categoriesBar/CategoriesBar"
 import {useDispatch, useSelector} from "react-redux"
 import { useEffect } from 'react'
 import { getPopularVideos, getVideosByCategory } from '../../redux/actions/video.action'
 import InfiniteScroll from "react-infinite-scroll-component"
-import Skeleton from "react-loading-skeleton"
+import SkeletonVideo from '../../Components/skeleton/SkeletonVideo'
 
 const HomeScreen = () => {
   const dispatch=useDispatch()
@@ -34,18 +34,18 @@ const HomeScreen = () => {
             loader={
               <div className='spinner-border text-danger d-block mx-auto'></div>
             }
+            className='row'
             >
-            <Row>
+            {/* <Row> */}
                 {loading===false?videos.map((video)=>(
-                  <Col lg={3} md={4} key={video.id}>
-                        <Video video={video}/>
+                  <Col lg={3} md={4}>
+                        <Video video={video} key={video.id}  />
                     </Col>
                 )):
-                [Array(20).map(()=> <Skeleton height={180} width="100%"/> )]
+                [Array(20).map(()=> <Col lg={3} md={4}><SkeletonVideo/></Col>)]
                 
-                // [...Array(20)].map(()=> <Col lg={3} md={4}> <Skeleton height={180} width="100%" /> </Col>)
                 }
-            </Row>
+            {/* </Row> */}
           </InfiniteScroll>
     </Container>
   )
