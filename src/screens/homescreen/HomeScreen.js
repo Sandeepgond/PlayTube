@@ -36,7 +36,7 @@ const HomeScreen = () => {
             }
             className='row'
             >
-            {/* <Row> */}
+          
                 {loading===false?videos.map((video)=>(
                   <Col lg={3} md={4}>
                         <Video video={video} key={video.id}  />
@@ -45,7 +45,7 @@ const HomeScreen = () => {
                 [Array(20).map(()=> <Col lg={3} md={4}><SkeletonVideo/></Col>)]
                 
                 }
-            {/* </Row> */}
+         
           </InfiniteScroll>
     </Container>
   )
