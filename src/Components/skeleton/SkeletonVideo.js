@@ -7,7 +7,12 @@ const SkeletonVideo = () => {
          <SkeletonTheme color='#343a40' highlightColor='#3c4147'>
             <Skeleton height={180} />
             <div>
-               <Skeleton style={{ margin: '0.5rem' }} circle height={40} width={40}/>
+               <Skeleton
+                  style={{ margin: '0.5rem' }}
+                  circle
+                  height={40}
+                  width={40}
+               />
                <Skeleton height={40} width='75%' />
             </div>
          </SkeletonTheme>
