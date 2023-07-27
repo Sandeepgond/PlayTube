@@ -5,6 +5,7 @@ import Sidebar from "./Components/sidebar/Sidebar"
 import {Container} from "react-bootstrap"
 import HomeScreen from "./screens/homescreen/HomeScreen"
 import LoginScreen from "./screens/loginscreen/LoginScreen"
+import WatchScreen from "./screens/watchScreen/WatchScreen"
 import {useSelector} from "react-redux"
 import {Route,Routes,useNavigate} from "react-router-dom"
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/" element={<Layout><HomeScreen/></Layout>}/>
         <Route path="/login" element={<LoginScreen/>}/>
         <Route path="/search" element={<Layout><h1>Search Results</h1></Layout>}/>
+        <Route path="/watch/:id" element={<Layout> <WatchScreen/> </Layout>}/>
         <Route path="*" element={<h1>Path Not Found</h1>}/>
       </Routes>
   )
