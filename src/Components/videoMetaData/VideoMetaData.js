@@ -49,9 +49,9 @@ const VideoMetaData = () => {
           anchorClass='showMoreText'
           expanded={false}
         >
-        Your words matter, and our paraphrasing tool is designed to ensure you use the right ones. 
-        With two free modes and five Premium modes to choose from, you can use QuillBot’s online Paraphraser to rephrase any text in a variety of ways. Our product will improve your fluency while also ensuring you have the appropriate vocabulary, tone, and style for any occasion.
-        Simply enter your text into the input box, and our AI will work with you to create the best paraphrase.
+          Your words matter, and our paraphrasing tool is designed to ensure you use the right ones. 
+          With two free modes and five Premium modes to choose from, you can use QuillBot’s online Paraphraser to rephrase any text in a variety of ways. Our product will improve your fluency while also ensuring you have the appropriate vocabulary, tone, and style for any occasion.
+          Simply enter your text into the input box, and our AI will work with you to create the best paraphrase.
 
         </ShowMoreText>
       </div>
