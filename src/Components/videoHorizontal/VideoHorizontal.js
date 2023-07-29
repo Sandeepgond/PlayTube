@@ -29,7 +29,6 @@ const VideoHorizontal = () => {
         <div className='videoHorizontal_details'>
             <AiFillEye/> 
             {numeral(1000).format("0.a")} Views •
-      
             {moment("2020-05-08").fromNow()}
         </div>
         <div className='videoHorizontal_channel d-flex align-items-center my-1'>
@@ -37,9 +36,7 @@ const VideoHorizontal = () => {
             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
             effect="blur"
           />
-          <p>
-            Code with harry
-          </p>
+          <p>Code with harry</p>
         </div>
       </Col>
 
