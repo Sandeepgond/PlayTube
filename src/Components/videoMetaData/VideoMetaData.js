@@ -54,7 +54,6 @@ const VideoMetaData = ({video:{snippet,statistics},videoId}) => {
           expanded={false}
         >
          {description}
-
         </ShowMoreText>
       </div>
 

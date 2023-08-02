@@ -22,7 +22,6 @@ const WatchScreen = () => {
   return (
     <Row>
       <Col lg={8} >
-
         <div className='watchScreen_player'>
           <iframe
             src={`https://www.youtube.com/embed/${id}`}
@@ -34,7 +33,6 @@ const WatchScreen = () => {
           >
           </iframe>
         </div>
-
         {
           !loading?<VideoMetaData video={video} videoId={id} />:<h6>Loading...</h6>
         }
@@ -43,7 +41,6 @@ const WatchScreen = () => {
 
       <Col lg={4} >
         {[...Array(10)].map(()=> <VideoHorizontal/>)}
-        
       </Col>
     </Row>
     
