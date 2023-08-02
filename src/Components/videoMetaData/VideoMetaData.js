@@ -5,22 +5,26 @@ import numeral from "numeral"
 import {MdThumbUp,MdThumbDown} from "react-icons/md"
 import ShowMoreText from "react-show-more-text"
 
-const VideoMetaData = () => {
+const VideoMetaData = ({video:{snippet,statistics},videoId}) => {
+
+  const { channelId, channelTitle, description, title, publishedAt } = snippet
+   const { viewCount, likeCount, dislikeCount } = statistics
+
   return (
     <div className='videoMetaData' py-2> 
       <div className='videoMetaData_top'>
-        <h5>Video Title</h5>
+        <h5>{title}</h5>
         <div className='d-flex justify-content-between align-items-center py-1'>
           <span>
-            {numeral(1000).format("0.a")} Views •
-            {moment("2022-06-07").fromNow()}
+            {numeral(viewCount).format("0.a")} Views •
+            {moment(publishedAt).fromNow()}
           </span>
           <div>
             <span className='mr-3'>
-              <MdThumbUp size={26} />  {numeral(1000).format("0.a")}
+              <MdThumbUp size={26} />  {numeral(likeCount).format("0.a")}
             </span>
             <span className='mr-3'>
-              <MdThumbDown size={26} />  {numeral(1000).format("0.a")}
+              <MdThumbDown size={26} />  {numeral(dislikeCount).format("0.a")}
             </span>
           </div>
         </div>
@@ -34,7 +38,7 @@ const VideoMetaData = () => {
             className='mr-3 rounded-circle'
           />
           <div className='d-flex flex-column'>
-            <span>Code with Harry</span>
+            <span>{channelTitle}</span>
             <span> {numeral(1000).format("0.a")} Subscriber</span>
           </div>
         </div>
@@ -49,9 +53,7 @@ const VideoMetaData = () => {
           anchorClass='showMoreText'
           expanded={false}
         >
-          Your words matter, and our paraphrasing tool is designed to ensure you use the right ones. 
-          With two free modes and five Premium modes to choose from, you can use QuillBot’s online Paraphraser to rephrase any text in a variety of ways. Our product will improve your fluency while also ensuring you have the appropriate vocabulary, tone, and style for any occasion.
-          Simply enter your text into the input box, and our AI will work with you to create the best paraphrase.
+         {description}
 
         </ShowMoreText>
       </div>
