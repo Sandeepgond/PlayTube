@@ -11,12 +11,11 @@ import { useDispatch, useSelector } from 'react-redux'
 const VideoMetaData = ({video:{snippet,statistics},videoId}) => {
 
   const { channelId, channelTitle, description, title, publishedAt } = snippet
-   const { viewCount, likeCount, dislikeCount } = statistics
-  
-   const dispatch=useDispatch()
-   const {snippet:channelSnippet,statistics:channelStatistics}=useSelector((state)=>state.channelDetails.channel)
+  const { viewCount, likeCount, dislikeCount } = statistics
 
-   const {subscriptionStatus}=useSelector((state)=>state.channelDetails.subscriptionStatus)
+  const dispatch=useDispatch()
+  const {snippet:channelSnippet,statistics:channelStatistics}=useSelector((state)=>state.channelDetails.channel)
+  const {subscriptionStatus}=useSelector((state)=>state.channelDetails.subscriptionStatus)
 
   useEffect(()=>{
     dispatch(getChannelDetails(channelId))
@@ -69,9 +68,7 @@ const VideoMetaData = ({video:{snippet,statistics},videoId}) => {
          {description}
         </ShowMoreText>
       </div>
-
     </div>
-    
   )
 }
 
