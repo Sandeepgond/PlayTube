@@ -10,7 +10,8 @@ import request from '../../api'
 import { useNavigate } from 'react-router-dom'
 
 const VideoHorizontal = ({video}) => {
-  const {id,
+  const {
+    id,
     snippet:{
       channelId,channelTitle,description,title,publishedAt,thumbnails:{medium}
     }
@@ -53,7 +54,6 @@ const VideoHorizontal = ({video}) => {
   const _duration=moment.utc(seconds*1000).format("mm:ss")
 
   const navigate=useNavigate()
-
   const handleClick=()=>{
     navigate(`/watch/${id.videoId}`)
   }
