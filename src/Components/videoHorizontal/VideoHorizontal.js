@@ -52,7 +52,6 @@ const VideoHorizontal = ({video}) => {
 
   const seconds=moment.duration(duration).asSeconds()
   const _duration=moment.utc(seconds*1000).format("mm:ss")
-
   const navigate=useNavigate()
   const handleClick=()=>{
     navigate(`/watch/${id.videoId}`)
