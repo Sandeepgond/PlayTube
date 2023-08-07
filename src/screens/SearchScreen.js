@@ -10,7 +10,7 @@ const SearchScreen = () => {
     const {querry}=useParams()
     // console.log(querry);
     const dispatch=useDispatch()
-    const { videos, loading } = useSelector(state => state.searchedVideos)
+    const { videos, loading } = useSelector(state => state.searchedVideo)
 
     useEffect(()=>{
         dispatch(getVideosBySearch(querry))
