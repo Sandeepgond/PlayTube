@@ -9,13 +9,14 @@ import {useEffect,useState} from"react"
 import request from '../../api'
 import { useNavigate } from 'react-router-dom'
 
-const VideoHorizontal = ({video}) => {
+const VideoHorizontal = ({video,searchScreen}) => {
   const {
     id,
     snippet:{
       channelId,channelTitle,description,title,publishedAt,thumbnails:{medium}
     }
   }=video
+  const isVideo=id.kind==='youtube#video'
   
   const [views,setViews]=useState(null)
   const [duration,setDuration]=useState(null)
@@ -54,35 +55,45 @@ const VideoHorizontal = ({video}) => {
   const _duration=moment.utc(seconds*1000).format("mm:ss")
   const navigate=useNavigate()
   const handleClick=()=>{
-    navigate(`/watch/${id.videoId}`)
+    isVideo?navigate(`/watch/${id.videoId}`):navigate(`/channel/${id.channelId}`)
   }
+
+  const thumbnail=isVideo && 'videoHorixontal_thumbnail-channel'
   
   return (
-    <Row className="py-2 m-1 videoHorizontal align-align-items-center" onClick={handleClick} > 
-      <Col xs={6} md={6} className='videoHorizontal_left'>
+    <Row className="py-2 m-1 videoHorizontal align-items-center" onClick={handleClick} > 
+      <Col xs={6} md={searchScreen?4:6} className='videoHorizontal_left'>
       <LazyLoadImage 
         src={medium.url}
         effect="blur" 
-        className="videoHorizontal_thumbnail"
+        className={`videoHorizontal_thumbnail${thumbnail}`}
         wrapperClassName="videoHorizontal_thumbnail-wrapper"
       />
-        <span className='videoHorizontal_duration'>{_duration}</span>
+      {isVideo
+        (<span className='videoHorizontal_duration'>{_duration}</span>)
+      }
       </Col>
 
-      <Col xs={6} md={6} className='videoHorizontal_right p-0 '>
+      <Col xs={6} md={searchScreen?8:6} className='videoHorizontal_right p-0 '>
         <p className='videoHorizontal_title mb-1'>
           {title}
         </p>
-        <div className='videoHorizontal_details'>
-            <AiFillEye/> 
-            {numeral(views).format("0.a")} Views •
-            {moment(publishedAt).fromNow()}
-        </div>
+        {isVideo && (
+          <div className='videoHorizontal_details'>
+              <AiFillEye/> 
+              {numeral(views).format("0.a")} Views •
+              {moment(publishedAt).fromNow()}
+          </div>
+        )}
+
+        {isVideo && <p className='mt-1' >{description}</p>}
+
         <div className='videoHorizontal_channel d-flex align-items-center my-1'>
-          <LazyLoadImage
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+          {isVideo && 
+          (<LazyLoadImage
+            src={channelIcon?.url}
             effect="blur"
-          />
+          />)}
           <p className='mb-0' >{channelTitle}</p>
         </div>
       </Col>

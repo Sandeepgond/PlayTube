@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./_headers.scss"
 import {FaBars} from "react-icons/fa"
 import {AiOutlineSearch} from "react-icons/ai"
 import {MdNotifications , MdApps} from "react-icons/md"
+import { useNavigate } from 'react-router-dom'
 
 const Headers = ({handleToggleSideBar}) => {
+  const navigate=useNavigate()
+  const [input,setInput]=useState("")
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    navigate(`search/${input}`)
+
+  }
+
   return (
     <div className='border border-dark header'>
       <FaBars className='header_menu' size={26} onClick={()=>handleToggleSideBar()}/>
@@ -13,8 +22,8 @@ const Headers = ({handleToggleSideBar}) => {
         alt="youtubeLogo"
         className='header_logo'
       />
-      <form>
-        <input type='text' placeholder='Search'/>
+      <form onSubmit={handleSubmit} >
+        <input type='text' value={input} onChange={(e)=>setInput(e.target.value)} placeholder='Search'/>
         <button type='submit'><AiOutlineSearch/></button>
       </form>
       <div className='header_icons'>
