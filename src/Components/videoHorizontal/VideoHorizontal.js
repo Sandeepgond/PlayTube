@@ -97,9 +97,7 @@ const VideoHorizontal = ({video,searchScreen}) => {
           <p className='mb-0' >{channelTitle}</p>
         </div>
       </Col>
-
     </Row>
-   
   )
 }
 

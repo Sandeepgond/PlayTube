@@ -20,7 +20,6 @@ const HomeScreen = () => {
       dispatch(getVideosByCategory(activeCategory))
     }
   }
-  
   useEffect(()=>{
     dispatch(getPopularVideos())
   },[dispatch])

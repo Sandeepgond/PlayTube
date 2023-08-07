@@ -28,7 +28,6 @@ const Layout=({children})=>{
 }
 
 function App() {
-
   const {accessToken,loading}=useSelector(state=>state.auth)
   const navigate=useNavigate()
 
