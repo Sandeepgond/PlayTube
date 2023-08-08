@@ -1,6 +1,8 @@
 import React from 'react'
 import {useDispatch} from "react-redux"
 import "./_sidebar.scss"
+import { Log_out } from '../../redux/actions/auth.action'
+import { Link } from 'react-router-dom'
 import {
   MdSubscriptions,
   MdExitToApp,
@@ -10,15 +12,15 @@ import {
   MdHome,
   MdSentimentDissatisfied
 } from "react-icons/md"
-import { Log_out } from '../../redux/actions/auth.action'
-import { Link } from 'react-router-dom'
 
 const Sidebar = ({toggleSideBar,handleToggleSideBar}) => {
+
   const dispatch=useDispatch()
+
   const handleLogout=()=>{
     dispatch(Log_out())
-
   }
+  
   return (
     <nav 
       className={toggleSideBar ? "sidebar open" : "sidebar"} 
