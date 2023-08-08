@@ -6,8 +6,11 @@ import { MdNotifications, MdApps } from "react-icons/md"
 import { useNavigate } from 'react-router-dom'
 
 const Headers = ({ handleToggleSideBar }) => {
+
   const navigate = useNavigate()
+
   const [input, setInput] = useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate(`/search/${input}`)
