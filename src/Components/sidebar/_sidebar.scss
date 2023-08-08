@@ -43,6 +43,14 @@
         // display: block;
         transform: translateX(0);
     }
+
+    a{
+        color: $text-color;
+        &:hover{
+            color: $text-color;
+        }
+        text-decoration: none;
+    }
 }
 
 @media(max-width:$breakpoint-medium){

@@ -25,7 +25,7 @@ useEffect(()=>{
         <div className='login_container'>
             <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt=""/>
             <button onClick={handleLogin}>Login with google</button>
-            <p>This project ois made using youtube api </p>
+            <p>This project is made using youtube api </p>
         </div>
     </div>
   )
