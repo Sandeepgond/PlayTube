@@ -10,6 +10,7 @@ import {useSelector} from "react-redux"
 import {Route,Routes,useNavigate} from "react-router-dom"
 import SearchScreen from "./screens/SearchScreen"
 import SubscriptionsScreen from "./screens/subscriptionsScreen/SubscriptionsScreen"
+import ChannelScreen from "./screens/channelScreen/ChannelScreen"
 
 const Layout=({children})=>{
   const [toggleSideBar,setToggleSideBar]=useState(false)
@@ -46,7 +47,7 @@ function App() {
         <Route path="/search/:querry" element={<Layout> <SearchScreen/> </Layout>}/>
         <Route path="/watch/:id" element={<Layout> <WatchScreen/> </Layout>}/>
         <Route path="/feed/subscriptions" element={<Layout> <SubscriptionsScreen/> </Layout>}/>
-        <Route path="/channel/:channelId" element={<Layout> Channel Screen</Layout>}/>
+        <Route path="/channel/:channelId" element={<Layout>  <ChannelScreen/> </Layout>}/>
         <Route path="*" element={<h1>Path Not Found</h1>}/>
       </Routes>
   )
