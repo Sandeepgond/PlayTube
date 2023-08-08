@@ -55,15 +55,12 @@ const Video = ({video,channelScreen}) => {
       setChannelIcon(items[0].snippet.thumbnails.default)
     }
     getChannelIcons()
-
   },[channelId])
-
 
   const handleVideoClick=()=>{
     navigate(`/watch/${_videoId}`)
   }
 
-  
   return (
     <div className='video' onClick={handleVideoClick}>
       <div className='video_top'>
@@ -85,7 +82,6 @@ const Video = ({video,channelScreen}) => {
       {!channelScreen && (
             <div className='video_channel'>
                <LazyLoadImage src={channelIcon?.url} effect='blur' />
-
                <p>{channelTitle}</p>
             </div>
          )}
