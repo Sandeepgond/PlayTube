@@ -4,44 +4,42 @@ import auth from "../../firebase"
 import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from '../actionType';
 
 
-export const login=()=>async dispatch=>{
-
-    dispatch({
-        type:LOGIN_REQUEST
-    })
-
+export const login = () => async dispatch => {
     try {
-        const provider=new firebase.auth.GoogleAuthProvider()
-        provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl")
-        const res=await auth.signInWithPopup(provider)
-        const accessToken=res.credential.accessToken
-        const profile={
-            name:res.additionalUserInfo.profile.name,
-            photoURL:res.additionalUserInfo.profile.picture
-        }
-
-        sessionStorage.setItem("access-token",accessToken)
-        sessionStorage.setItem("user",JSON.stringify(profile) )
-
-        dispatch({
-            type:LOGIN_SUCCESS,
-            payload:accessToken
-        })
-        dispatch({
-            type:LOAD_PROFILE,
-            payload:profile
-        })
-    } 
-    catch (error) {
-        dispatch({
-            type:LOGIN_FAIL,
-            payload:error.message
-        })
-        console.log(error.message)
-        
+       dispatch({
+          type: LOGIN_REQUEST,
+       })
+ 
+       const provider = new firebase.auth.GoogleAuthProvider()
+       provider.addScope('https://www.googleapis.com/auth/youtube.force-ssl')
+ 
+       const res = await auth.signInWithPopup(provider)
+       const accessToken = res.credential.accessToken
+ 
+       const profile = {
+          name: res.additionalUserInfo.profile.name,
+          photoURL: res.additionalUserInfo.profile.picture,
+       }
+ 
+       sessionStorage.setItem('ytc-access-token', accessToken)
+       sessionStorage.setItem('ytc-user', JSON.stringify(profile))
+ 
+       dispatch({
+          type: LOGIN_SUCCESS,
+          payload: accessToken,
+       })
+       dispatch({
+          type: LOAD_PROFILE,
+          payload: profile,
+       })
+    } catch (error) {
+       console.log(error.message)
+       dispatch({
+          type: LOGIN_FAIL,
+          payload: error.message,
+       })
     }
-
-}
+ }
 
 export const Log_out=()=>async dispatch=>{
     await auth.signOut()
@@ -52,5 +50,4 @@ export const Log_out=()=>async dispatch=>{
 
     sessionStorage.removeItem("access-token")
     sessionStorage.removeItem("user")
-
 }
