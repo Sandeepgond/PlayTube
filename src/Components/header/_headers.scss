@@ -20,6 +20,7 @@
         height: 30px;
         object-fit: contain;
         display: block;
+        cursor: pointer;
     }
 
     form{
@@ -53,6 +54,7 @@
             &:focus{
                 border: none;
             }
+            cursor: pointer;
         }
     }
 
@@ -61,12 +63,14 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        cursor: pointer;
 
         img{
             border-radius: 50%;
             width: 40px;
             object-fit: contain;
             margin-left: 5px;
+            cursor: pointer;
         }
     }
     

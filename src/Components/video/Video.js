@@ -6,6 +6,7 @@ import moment from "moment"
 import numeral from "numeral"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 const Video = ({video,channelScreen}) => {
   const {id,

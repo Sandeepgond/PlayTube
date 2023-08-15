@@ -4,10 +4,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Comments from '../../Components/comments/Comments'
-import VideoHorizontal from "../../Components/videoHorizontal/VideoHorizontal"
-import VideoMetaData from '../../Components/videoMetaData/VideoMetaData'
 import { Helmet } from 'react-helmet'
 import './_watchScreen.scss'
+import VideoHorizontal from '../../Components/videoHorizontal/VideoHorizontal'
+import VideoMetaData from "../../Components/videoMetaData/VideoMetaData"
 import { getRelatedVideos, getVideoById } from '../../redux/actions/video.action'
 
 const WatchScreen = () => {
@@ -17,15 +17,14 @@ const WatchScreen = () => {
 
    useEffect(() => {
       dispatch(getVideoById(id))
-
       dispatch(getRelatedVideos(id))
    }, [dispatch, id])
 
-   const { videos, loading: relatedVideosLoading } = useSelector(
-      state => state.relatedVideo
-   )
+   const { videos, loading: relatedVideosLoading } = useSelector(state => state.relatedVideo)
 
    const { video, loading } = useSelector(state => state.selectedVideo)
+
+   
 
    return (
       <Row>
@@ -33,7 +32,7 @@ const WatchScreen = () => {
             <title>{video?.snippet?.title}</title>
          </Helmet>
          <Col lg={8}>
-            <div className='watchScreen__player'>
+            <div className='watchScreen_player'>
                <iframe
                   src={`https://www.youtube.com/embed/${id}`}
                   frameBorder='0'
