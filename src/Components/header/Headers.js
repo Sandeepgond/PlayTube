@@ -17,7 +17,7 @@ const Headers = ({ handleToggleSideBar }) => {
     navigate(`/search/${input}`)
   }
 
-  const {photoURL}=useSelector(state=>state.auth?.user)
+  const user = useSelector(state => state.auth?.user)
 
   return (
     <div className='border border-dark header'>
@@ -35,7 +35,7 @@ const Headers = ({ handleToggleSideBar }) => {
         <MdNotifications size={28} />
         <MdApps size={28} />
         <img
-          src={photoURL}
+          src={user?.photoURL}
           alt="avatar"
         />
       </div>

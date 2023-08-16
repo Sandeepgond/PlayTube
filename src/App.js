@@ -34,7 +34,7 @@ function App() {
   const navigate=useNavigate()
 
   useEffect(()=>{
-    if(!loading && !accessToken){
+    if(accessToken===null && loading===false){
       navigate("/login")
     }
 

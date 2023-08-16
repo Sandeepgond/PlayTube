@@ -213,7 +213,7 @@ export const getVideosByChannel = id => async dispatch => {
          params: {
             part: 'snippet,contentDetails',
             playlistId: uploadPlaylistId,
-            maxResults: 30,
+            maxResults: 50,
          },
       })
 
