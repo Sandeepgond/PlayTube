@@ -146,7 +146,6 @@ export const getVideosBySearch = keyword => async dispatch => {
       const { data } = await request('/search', {
          params: {
             part: 'snippet',
-
             maxResults: 20,
             q: keyword,
             type: 'video,channel',

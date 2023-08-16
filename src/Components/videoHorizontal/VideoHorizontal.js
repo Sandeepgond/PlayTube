@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './_videoHorizontal.scss'
-
 import { AiFillEye } from 'react-icons/ai'
 import request from '../../api'
-
 import moment from 'moment'
 import numeral from 'numeral'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -69,9 +67,7 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
    const _channelId = resourceId?.channelId || channelId
 
    const handleClick = () => {
-      isVideo
-         ? navigate(`/watch/${id.videoId}`)
-         : navigate(`/channel/${_channelId}`)
+      isVideo ? navigate(`/watch/${id.videoId}`) : navigate(`/channel/${_channelId}`)
    }
 
    const thumbnail = !isVideo && 'videoHorizontal_thumbnail-channel'
